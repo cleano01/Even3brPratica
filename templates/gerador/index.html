@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Template - Gerador de Certificado - Teste</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{% static "css/vendor/bootstrap/css/bootstrap.min.css" %}">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="{% static "css/scrolling-nav.css" %}">
+
+    
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Even3br</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+        
+        </div>
+      </div>
+    </nav>
+
+    <header class="bg-primary text-white">
+      <div class="container text-center">
+        <h1>GERADOR DE CERTIFICADOS</h1>
+       
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>1. Criar Modelo</h2>
+            <p class="lead"> <button class="btn btn-primary" type="submit">Anexar Imagem de Fundo </button> <a href="https://www.google.com.br/search?q=plano+de+fundo+de+certificados&tbm=isch&tbo=u&source=univ" target="_blank"> Dica: Templates de Certificados </a> <p>
+            
+              <div class="form-group">
+                <label for="comment"></label>
+                <textarea class="form-control" rows="20" id="comment"  >
+                    
+                                                                CERTIFICADO
+
+                      Certifico que {{nome}} participou do I Congresso Note Americano de Letras
+                      a cidade de Recife, no perído de 10/04/2018 a 12/04/2018 totaliando uma 
+                      carga de horária de 20 horas.
+                  
+                  
+                  
+                  </textarea>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>2. Importar Participantes</h2>
+            <p class="lead">Copie o conteúdo na planilha excel, incluindo os cabeçalhos e cole aqui.</p>
+
+            <div class="form-group">
+              <label for="comment"></label>
+              <textarea class="form-control" rows="20" id="comment"></textarea>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h2>3. Enviar Certificados</h2>
+            <p class="lead"><button class="btn btn-primary" type="submit">Enviar por e-mail </button></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static "/vendor/jquery/jquery.min.js" %}"></script>
+    <script src= "{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}" ></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static "vendor/jquery-easing/jquery.easing.min.js" %}"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="{% static "js/scrolling-nav.js" %}"></script>
+
+  </body>
+
+</html>
