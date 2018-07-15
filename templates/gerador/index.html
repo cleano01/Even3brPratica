@@ -12,12 +12,22 @@
     <title>Template - Gerador de Certificado - Teste</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{% static "css/vendor/bootstrap/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="{% static "css/scrolling-nav.css" %}">
+    <link rel="stylesheet" href="{% static "/scrolling-nav.css" %}">
 
     
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static "vendor/jquery/jquery.min.js" %}"></script>
+    <script src= "{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}" ></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static "vendor/jquery-easing/jquery.easing.min.js" %}"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="{% static "js/scrolling-nav.js" %}"></script>
+
 
   </head>
 
@@ -48,8 +58,17 @@
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <h2>1. Criar Modelo</h2>
-            <p class="lead"> <button class="btn btn-primary" type="submit">Anexar Imagem de Fundo </button> <a href="https://www.google.com.br/search?q=plano+de+fundo+de+certificados&tbm=isch&tbo=u&source=univ" target="_blank"> Dica: Templates de Certificados </a> <p>
+            <form class="form-horizontal" action="{% url 'gerador:index' %}" method="POST"
+            enctype="multipart/form-data">
+            <p class="lead"><a href="https://www.google.com.br/search?q=plano+de+fundo+de+certificados&tbm=isch&tbo=u&source=univ" target="_blank"> Dica: Templates de Certificados </a> <p>
             
+            
+                {% csrf_token %}
+                {{ form.image}}
+
+              <button class="btn btn-primary" type="submit">Anexar Imagem de Fundo </button>
+
+            </form>
               <div class="form-group">
                 <label for="comment"></label>
                 <textarea class="form-control" rows="20" id="comment"  >
@@ -78,7 +97,7 @@
 
             <div class="form-group">
               <label for="comment"></label>
-              <textarea class="form-control" rows="20" id="comment"></textarea>
+              <textarea class="form-control" cols='5' rows="20"  wrap="hard" id="comment"></textarea>
             </div>
 
           </div>
@@ -105,17 +124,8 @@
       <!-- /.container -->
     </footer>
 
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static "/vendor/jquery/jquery.min.js" %}"></script>
-    <script src= "{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}" ></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="{% static "vendor/jquery-easing/jquery.easing.min.js" %}"></script>
-
-    <!-- Custom JavaScript for this theme -->
-    <script src="{% static "js/scrolling-nav.js" %}"></script>
-
+  
+    
   </body>
 
 </html>
