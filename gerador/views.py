@@ -32,7 +32,7 @@ def index(request):
             
             form.save()
             context={'form':form}
-            texto1 = "Certifico que {nome} participou do I Congresso Norte".format(nome="Cleano ferreira")
+            texto1 = "Certifico que {nome} participou do I Congresso Norte".format(nome="Cleano Ferreira")
             texto2 = "Americano de Letras na cidade de Recife, no perído de 10/04/2018 a"
             texto3 = "12/04/2018 totalizando uma carga horária de 20 horas"
             
@@ -96,7 +96,7 @@ def email(request):
         server= smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
         #server.login(fromaddr, open('senha.txt').read().strip())
-        server.login(fromaddr, "never1230")
+        server.login(fromaddr, "SUA SENHA DO GMAIL AQUI!")
         text= msg.as_string()
         print(text)
         server.sendmail(fromaddr, toaddr, text)
