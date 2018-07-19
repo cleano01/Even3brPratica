@@ -4,5 +4,5 @@ from django.db import models
 
 
 class Certificado(models.Model):
-    image=models.FileField(upload_to='%Y/%m/%d/', blank = True)
+    image=models.FileField( blank = True)
 

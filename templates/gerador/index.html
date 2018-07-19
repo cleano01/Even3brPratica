@@ -95,22 +95,35 @@
             <h2>2. Importar Participantes</h2>
             <p class="lead">Copie o conteúdo na planilha excel, incluindo os cabeçalhos e cole aqui.</p>
 
-            <div class="form-group">
-              <label for="comment"></label>
-              <textarea class="form-control" cols='5' rows="20"  wrap="hard" id="comment"></textarea>
-            </div>
+            
+              <label for="comment"  ></label>
 
+                <form id="IDdoTextarea2" action="{% url 'gerador:email' %}"  method="POST">
+                  {% csrf_token %}
+                    
+
+                    <textarea class="form-control" rows="20"  id='textEmail'>
+                    
+                    </textarea>
+                    
+                    <p class="lead"><button  class="btn btn-primary" type="submit" value="SUBMIT">Enviar por e-mail </button></p>           
+               </form>                  
           </div>
         </div>
-      </div>
+      </div>  
+         
     </section>
 
     <section id="contact">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h2>3. Enviar Certificados</h2>
-            <p class="lead"><button class="btn btn-primary" type="submit">Enviar por e-mail </button></p>
+            <h2>3. Enviar Certificados</h2>                          
+
+            <p class="lead"><button  class="btn btn-primary" type="submit" value="submit">Enviar por e-mail </button></p>
+                   
+       
+          
           </div>
         </div>
       </div>
@@ -125,6 +138,33 @@
     </footer>
 
   
+    <script type="text/javascript">
+        
+        $(document).on('submit', 'IDdoTextarea2', function(e){
+          console.log($('#textEmail').val())
+            e.preventDefault();
+            console.log($('textEmail').val())
+            $.ajax({
+              type:'POST',
+              url:'/email/',
+              data:{
+                email:$('#textEmail').val(),
+                
+              
+              },
+              success:function(){
+                  alert('Email enviado!')
+              }
+
+              
+            });
+            
+          
+
+        })
+
+     </script>
+
     
   </body>
 
