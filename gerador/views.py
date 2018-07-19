@@ -37,7 +37,7 @@ def index(request):
             texto3 = "12/04/2018 totalizando uma carga horária de 20 horas"
             
 
-            img = Image.open("media/certificado_base.jpeg")
+            img = Image.open("media/certificado_base.jpeg") 
             draw = ImageDraw.Draw(img)
             # font = ImageFont.truetype(<font-file>, <font-size>)
             font = ImageFont.truetype("fonts/Oswald-Light.ttf", 40)
@@ -96,7 +96,7 @@ def email(request):
         server= smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
         #server.login(fromaddr, open('senha.txt').read().strip())
-        server.login(fromaddr, "COLOQUE SUA SENHA AQUI")
+        server.login(fromaddr, "never1230")
         text= msg.as_string()
         print(text)
         server.sendmail(fromaddr, toaddr, text)
