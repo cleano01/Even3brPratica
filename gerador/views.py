@@ -27,7 +27,8 @@ def index(request):
     if(request.method == 'POST'):
         
         form= CertificadoForm(request.POST, request.FILES)
-        print(form.is_valid())
+
+        print(form)
         if (form.is_valid()):
             
             form.save()
@@ -57,14 +58,14 @@ def index(request):
 def email(request):
     if(request.method == 'POST'):
        
-        email= request.POST
-        
+        email= request.POST['email']
+        print(email)
         print("FOI POST ")
 
         print("Enviar Email")
 
         fromaddr = 'cleano.ferreira@dce.ufpb.br'
-        toaddr = 'cleano.ferreira@dce.ufpb.br'
+        toaddr = email
 
 #############################################
 
@@ -78,8 +79,8 @@ def email(request):
         body= 'Mensagem Enviada Python, body'
         msg.attach(MIMEText(body))
 
-        filename= 'sample-out.pdf' #aqui bota o nome do arquivo
-        attachment= open(filename, 'rb')
+        filename='sample-out.pdf' #aqui bota o nome do arquivo
+        attachment=open(filename, 'rb')
 
         mimetypes.guess_type(filename)
         mimetype_anexp= mimetypes.guess_type(filename)[0].split('/')
@@ -96,9 +97,9 @@ def email(request):
         server= smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
         #server.login(fromaddr, open('senha.txt').read().strip())
-        server.login(fromaddr, "SUA SENHA DO GMAIL AQUI!")
+        server.login(fromaddr, "never1230")
         text= msg.as_string()
-        print(text)
+        #print(text)
         server.sendmail(fromaddr, toaddr, text)
         server.quit()
         

@@ -105,6 +105,7 @@
                     <textarea class="form-control" rows="20"  id='textEmail'>
                     
                     </textarea>
+                    
                     <br>
                     <br>
                     <br>
@@ -133,16 +134,34 @@
 
   
     <script type="text/javascript">
+      var csrftokenGET = getCookie('csrftoken');
+      var csrftokenPOST = getCookie('csrftoken');
+      //funcao criada para gerar o csrftoken no envio da requisicao POST para o Django
+      function getCookie(name) {
+          var cookieValue = null;
+          if (document.cookie && document.cookie != '') {
+              var cookies = document.cookie.split(';');
+              for (var i = 0; i < cookies.length; i++) {
+                  var cookie = jQuery.trim(cookies[i]);
+                  if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                      break;
+                  }
+              }
+          }
+          return cookieValue;
+        }
         
-        $(document).on('submit', 'IDdoTextarea2', function(e){
+        $('#IDdoTextarea2').on('submit', function(e){
           console.log($('#textEmail').val())
             e.preventDefault();
-            console.log($('textEmail').val())
+            console.log($('#textEmail').val())
             $.ajax({
               type:'POST',
-              url:'/email/',
+              url:'/gerador/email/',
               data:{
                 email:$('#textEmail').val(),
+                'csrfmiddlewaretoken': csrftokenPOST,
                 
                 
               
