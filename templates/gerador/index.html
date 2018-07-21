@@ -71,17 +71,15 @@
             </form>
               <div class="form-group">
                 <label for="comment"></label>
-                <textarea class="form-control" rows="20" id="comment"  >
-                    
-                                                                CERTIFICADO
+                <textarea class="form-control" rows="20" id="NomeParticipante">
+                                                            CERTIFICADO
 
-                      Certifico que {{nome}} participou do I Congresso Note Americano de Letras
-                      a cidade de Recife, no perído de 10/04/2018 a 12/04/2018 totaliando uma 
-                      carga de horária de 20 horas.
+                  Certifico que {{nome}} participou do I Congresso Note Americano de Letras
+                  a cidade de Recife, no perído de 10/04/2018 a 12/04/2018 totaliando uma 
+                  carga de horária de 20 horas.
+                </textarea>                                                          
                   
                   
-                  
-                  </textarea>
               </div>
           </div>
         </div>
@@ -155,23 +153,25 @@
         $('#IDdoTextarea2').on('submit', function(e){
           console.log($('#textEmail').val())
             e.preventDefault();
-            console.log($('#textEmail').val())
+            
             $.ajax({
               type:'POST',
               url:'/gerador/email/',
               data:{
                 email:$('#textEmail').val(),
                 'csrfmiddlewaretoken': csrftokenPOST,
-                
-                
+                                
               
               },
+              
               success:function(){
                   alert('Email enviado!')
               }
 
               
             });
+
+            
             
           
 
